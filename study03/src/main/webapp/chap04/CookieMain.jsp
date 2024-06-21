@@ -34,7 +34,7 @@
     cookie.setPath(request.getContextPath());
 //    쿠키를 보관할 시간, 시간을 초(sec)로 계산함
     cookie.setMaxAge(3600);
-//    클라이언트에 쿠키를 저달하기 위해서 response 객체에 저장
+//    클라이언트에 쿠키를 전달하기 위해서 response 객체에 저장
     response.addCookie(cookie);
   %>
 
