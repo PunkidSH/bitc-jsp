@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: admin
-  Date: 24. 6. 19.
-  Time: 오후 5:53
+  Date: 24. 6. 26.
+  Time: 오전 9:27
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
@@ -23,24 +23,19 @@
 
 </head>
 <body>
-<div class="container mt-5 ">
-  <%
-    String logErr = request.getParameter("logErr");
-    if (logErr != null) out.print("당신은 진정한 신자가 아닙니다.");
-  %>
-      <form action="/PractResponseLogin.jsp" method="post">
-        <div>
-          <label for="userId" class="form-label"></label>
-          <input type="text" class="form-control" id="userId" name="userId" placeholder="id">
-        </div>
-        <div>
-          <label for="userPw" class="form-label"></label>
-          <input type="password" class="form-control" id="userPw" name="userPw" placeholder="pass">
-        </div>
-        <div class="d-grid mt-4">
-          <button type="submit" class="btn btn-primary">로그인</button>
-        </div>
-      </form>
-  </div>
+<div>
+  <h2>외부 파일 2</h2>
+    <%
+//      OuterPage2.jsp 에서 선언한 변수
+      String newVal2 = "백제 온조왕";
+    %>
+  <ul class="list-group">
+<%--    IncludeMain.jsp 파일의 page 영역에 저장한 데이터 가져오기--%>
+<%--    페이지가 변경된 것이기 때문에 IncludeMain.jsp 에서 page 영역에 저장한 내용을 가져올 수 없음 --%>
+    <li class="list-group-item">page 영역 속성 : <%= pageContext.getAttribute("pAttr") %></li>
+<%--  IncludeMain.jsp 파일의 request 영역에 저장한 데이터 가져오기--%>
+    <li class="list-group-item">request 영역 속성 : <%= request.getAttribute("rAttr")%></li>
+  </ul>
+
 </body>
 </html>

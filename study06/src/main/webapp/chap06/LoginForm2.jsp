@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: admin
-  Date: 24. 6. 19.
-  Time: 오후 5:53
+  Date: 24. 6. 25.
+  Time: 오후 2:07
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
@@ -23,24 +23,30 @@
 
 </head>
 <body>
-<div class="container mt-5 ">
-  <%
-    String logErr = request.getParameter("logErr");
-    if (logErr != null) out.print("당신은 진정한 신자가 아닙니다.");
-  %>
-      <form action="/PractResponseLogin.jsp" method="post">
-        <div>
-          <label for="userId" class="form-label"></label>
-          <input type="text" class="form-control" id="userId" name="userId" placeholder="id">
+<div class="container my-5">
+  <h2 class="text-center">세션을 사용한 로그인 페이지</h2>
+
+  <%--  로그인을 위한 사용자 id, pw를 입력받는 페이지--%>
+  <div class="row">
+    <div class="col-sm-4 mx-auto">
+      <form action="LoginProcess2.jsp" method="post">
+        <div class="my-3">
+          <label for="user-id" class="form-label">사용자 ID : </label>
+          <input type="text" class="form-control" id="user-id" name="userId" placeholder="사용자 ID를 입력하세요.">
         </div>
-        <div>
-          <label for="userPw" class="form-label"></label>
-          <input type="password" class="form-control" id="userPw" name="userPw" placeholder="pass">
+        <div class="my-3">
+          <label for="user-pw" class="form-label">비밀번호 : </label>
+          <input type="password" class="form-control" id="user-pw" name="userPw" placeholder="비밀번호를 입력하세요.">
         </div>
-        <div class="d-grid mt-4">
+        <div class="my-3 d-grid gap-2">
           <button type="submit" class="btn btn-primary">로그인</button>
+          <div class="d-flex justify-content-end">
+            <a href="Join.jsp" class="btn btn-link">회원가입</a>
+          </div>
         </div>
       </form>
+    </div>
   </div>
+</div>
 </body>
 </html>

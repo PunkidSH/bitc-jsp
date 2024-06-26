@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: admin
-  Date: 24. 6. 19.
-  Time: 오후 5:53
+  Date: 24. 6. 25.
+  Time: 오전 10:12
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
@@ -23,24 +23,20 @@
 
 </head>
 <body>
-<div class="container mt-5 ">
-  <%
-    String logErr = request.getParameter("logErr");
-    if (logErr != null) out.print("당신은 진정한 신자가 아닙니다.");
-  %>
-      <form action="/PractResponseLogin.jsp" method="post">
-        <div>
-          <label for="userId" class="form-label"></label>
-          <input type="text" class="form-control" id="userId" name="userId" placeholder="id">
-        </div>
-        <div>
-          <label for="userPw" class="form-label"></label>
-          <input type="password" class="form-control" id="userPw" name="userPw" placeholder="pass">
-        </div>
-        <div class="d-grid mt-4">
-          <button type="submit" class="btn btn-primary">로그인</button>
-        </div>
-      </form>
+
+<%
+//  페이지 이동 후 세션 영역에 저장된 데이터를 가져옴
+  String userId = (String)session.getAttribute("userId");
+  String userName = (String)session.getAttribute("userName");
+%>
+<div class="container mt-5">
+  <h2 class="text-center">세션을 사용한 로그인 성공</h2>
+
+  <div class="d-flex justify-content-end">
+<%--    가져온 데이터 화면에 출력--%>
+    <p class="me-3"><%=userName%>(<%=userId%>) 님 반갑습니다.</p>
+    <a href="Logout.jsp" class="btn btn-info">로그 아웃</a>
   </div>
+</div>
 </body>
 </html>

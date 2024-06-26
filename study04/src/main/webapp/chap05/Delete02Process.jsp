@@ -1,11 +1,13 @@
 <%--
   Created by IntelliJ IDEA.
   User: admin
-  Date: 24. 6. 19.
-  Time: 오후 5:53
+  Date: 24. 6. 24.
+  Time: 오후 12:02
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+
+<%@page import="java.sql.*" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -23,24 +25,34 @@
 
 </head>
 <body>
-<div class="container mt-5 ">
-  <%
-    String logErr = request.getParameter("logErr");
-    if (logErr != null) out.print("당신은 진정한 신자가 아닙니다.");
-  %>
-      <form action="/PractResponseLogin.jsp" method="post">
-        <div>
-          <label for="userId" class="form-label"></label>
-          <input type="text" class="form-control" id="userId" name="userId" placeholder="id">
-        </div>
-        <div>
-          <label for="userPw" class="form-label"></label>
-          <input type="password" class="form-control" id="userPw" name="userPw" placeholder="pass">
-        </div>
-        <div class="d-grid mt-4">
-          <button type="submit" class="btn btn-primary">로그인</button>
-        </div>
-      </form>
-  </div>
+<%
+  request.setCharacterEncoding("UTF-8");
+  String userId = request.getParameter("userId");
+%>
+
+<%@ include file="dbConn.jsp" %>
+
+<%
+  PreparedStatement pstmt = null;
+  String sql = "DELETE FROM member WHERE id = ?;";
+
+  try {
+    pstmt = conn.prepareStatement(sql);
+    pstmt.setString(1, userId);
+
+    out.println("데이터 삭제에 성공하였습니다.");
+  }
+  catch (SQLException e) {
+    out.println("데이터 삭제에 실패하였습니다. <br>");
+    out.println("SQLException : " + e.getMessage());
+  }
+  finally {
+    try {
+      if (pstmt != null) { pstmt.close(); }
+      if (conn != null) { conn.close(); }
+    }
+    catch (Exception e) {}
+  }
+%>
 </body>
 </html>

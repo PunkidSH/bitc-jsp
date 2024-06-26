@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: admin
-  Date: 24. 6. 19.
-  Time: 오후 5:53
+  Date: 24. 6. 26.
+  Time: 오전 10:39
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
@@ -23,24 +23,21 @@
 
 </head>
 <body>
-<div class="container mt-5 ">
-  <%
-    String logErr = request.getParameter("logErr");
-    if (logErr != null) out.print("당신은 진정한 신자가 아닙니다.");
-  %>
-      <form action="/PractResponseLogin.jsp" method="post">
-        <div>
-          <label for="userId" class="form-label"></label>
-          <input type="text" class="form-control" id="userId" name="userId" placeholder="id">
-        </div>
-        <div>
-          <label for="userPw" class="form-label"></label>
-          <input type="password" class="form-control" id="userPw" name="userPw" placeholder="pass">
-        </div>
-        <div class="d-grid mt-4">
-          <button type="submit" class="btn btn-primary">로그인</button>
-        </div>
-      </form>
-  </div>
+<div class="container mt-5">
+  <h3 class="text-center">액션 태그로 폼값 한번에 받기</h3>
+  <form action="UseBeanAction.jsp" method="post">
+    <div class="my-3">
+      <label for="name" class="form-label">이름 : </label>
+      <input type="text" class="form-control" id="name" name="name">
+    </div>
+    <div class="my-3">
+      <label for="age" class="form-label">나이 : </label>
+      <input type="text" class="form-control" id="age" name="age">
+    </div>
+    <div class="my-3 d-flex justify-content-start">
+      <button type="submit" class="btn btn-primary">전송</button>
+    </div>
+  </form>
+</div>
 </body>
 </html>

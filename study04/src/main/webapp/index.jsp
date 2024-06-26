@@ -18,6 +18,17 @@
   <li><a href="ConnectionTest.jsp" target="_blank" class="btn btn-link list-group-item">DB 접속 테스트</a></li>
   <li><a href="./chap05/Insert.jsp" target="_blank" class="btn btn-link list-group-item">insert 사용</a></li>
   <li><a href="./chap05/Select.jsp" target="_blank" class="btn btn-link list-group-item">select 사용</a></li>
+  <li><a href="./chap05/Update.jsp" target="_blank" class="btn btn-link list-group-item">update 사용</a></li>
+  <li><a href="./chap05/Delete.jsp" target="_blank" class="btn btn-link list-group-item">delete 사용</a></li>
+  <li><a href="./chap05/Insert02.jsp" target="_blank" class="btn btn-link list-group-item">PreparedStatement로 insert 사용</a></li>
+  <li><a href="./chap05/Select02.jsp" target="_blank" class="btn btn-link list-group-item">PreparedStatement로 select 사용</a></li>
+  <li><a href="./chap05/Update.jsp" target="_blank" class="btn btn-link list-group-item">PreparedStatement로 update 사용</a></li>
+  <li><a href="./chap05/Delete02.jsp" target="_blank" class="btn btn-link list-group-item">PreparedStatement로 delete 사용</a></li>
+  <li><a href="./chap05/PreparedStatementEX.jsp" target="_blank" class="btn btn-link list-group-item">PreparedStatement 재활용하기</a></li>
+  <li><a href="./chap05/ConnectionTest1.jsp" target="_blank" class="btn btn-link list-group-item">기존 JSP 방식 DB 접속</a></li>
+  <li><a href="./chap05/ConnectionTest2.jsp" target="_blank" class="btn btn-link list-group-item">DB 접속을 Java Class로 DB 접속</a></li>
+  <li><a href="./chap05/ConnectionTest3.jsp" target="_blank" class="btn btn-link list-group-item">web.xml에서 DB 접속 정보를 가져와서 DB 접속</a></li>
+  <li><a href="./chap05/ConnectionPoolEx.jsp" target="_blank" class="btn btn-link list-group-item">커넥션 풀로 DB 접속하기</a></li>
 </ul>
 </div>
 </body>
