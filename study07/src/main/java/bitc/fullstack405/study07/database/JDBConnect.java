@@ -3,8 +3,8 @@ package bitc.fullstack405.study07.database;
 import jakarta.servlet.ServletContext;
 
 import java.sql.*;
-import java.util.Locale;
 
+// 데이터베이스 접속을 위한 필드 및 메소드를 선언
 public class JDBConnect {
   private String dbDriver;
   private String dbUrl;

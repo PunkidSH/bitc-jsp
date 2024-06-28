@@ -26,7 +26,7 @@ public class BoardDAO extends JDBConnect {
     List<BoardDTO> boardList = new ArrayList<BoardDTO>();
 
     try {
-      String sql = "SELECT num, title, id, postdate, visitcount FROM board ";
+      String sql = "SELECT num, title, id, postdate, visitcount FROM board ORDER BY num DESC ";
 
       stmt = conn.createStatement();
       rs = stmt.executeQuery(sql);
@@ -129,6 +129,57 @@ public int insertBoard(BoardDTO board) {
     return result;
 }
 //  게시판 글 수정 메소드
+  public int updateBoard(BoardDTO board) {
+    int result = 0;
+
+    try {
+      String sql = "UPDATE board ";
+      sql += "SET title = ?, content = ?, postdate = now() ";
+      sql += "WHERE num = ? ";
+
+      pstmt = conn.prepareStatement(sql);
+      pstmt.setString(1, board.getTitle());
+      pstmt.setString(2, board.getContent());
+      pstmt.setInt(3, board.getNum());
+
+      result = pstmt.executeUpdate();
+    }
+    catch (SQLException e) {
+      System.out.println("데이터베이스 수정 중 오류가 발생했습니다");
+      e.printStackTrace();
+    }
+    finally {
+      try {
+        if (pstmt != null) { pstmt.close(); }
+        if (conn != null) { conn.close(); }
+      }
+      catch (Exception e) {}
+    }
+
+    return result;
+  }
 
 //  게시판 글 삭제 메소드
+  public int deleteBoard(int num) {
+    int result = 0;
+
+    try {
+      String sql = "DELETE FROM board WHERE num = " + num + " ";
+      stmt = conn.createStatement();
+      result = stmt.executeUpdate(sql);
+    }
+    catch (SQLException e) {
+      System.out.println("데이터베이스에서 삭제 중 오류가 발생했습니다.");
+      e.printStackTrace();
+    }
+    finally {
+      try {
+        if (stmt != null) { stmt.close(); }
+        if (conn != null) { conn.close(); }
+      }
+      catch (Exception e) {}
+    }
+
+    return result;
+  }
 }

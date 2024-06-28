@@ -33,7 +33,6 @@
 <%--  scope : 생성된 객체를 저장할 영역, 주로 page(기본값), request를 사용 --%>
   <jsp:useBean id="person" class="bitc.fullstack405.study07.Person" scope="request"></jsp:useBean>
 
-
   <h3 class="text-center">setProperty 액션 태그 사용</h3>
 <%--  setProperty : useBean 액션 태그를 통해서 생성된 자바 클래스 타입의 객체에 데이터를 저장하는 액션 태그--%>
 <%--  name : useBean 액션 태그로 생성된 자바 클래스 타입의 객체명을 지정 --%>
@@ -55,12 +54,6 @@
 
 <%-- 액션 태그 useBean을 사용하지 않은 형태 --%>
   <%@ page import="bitc.fullstack405.study07.Person" %>
-  <%
-    Person p = new Person();
-
-    p.setName("임꺽정");
-    p.setAge(41);
-  %>
 
   <ul class="list-group">
     <li class="list-group-item">이름 : <%=p.getName()%></li>
@@ -70,3 +63,4 @@
 </div>
 </body>
 </html>
+
